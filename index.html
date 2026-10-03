@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Городок</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="hud"><div>Бюджет: <b id="money"></b></div><div>Жителей: <b id="pop">0</b></div><div>Работа: <b id="jobs"></b></div><div>Доход за ход: <b id="inc">0</b></div><div class="cold" id="cold"></div><button id="pause">Меню</button></div>
+<div id="needs"></div>
+<div id="dock"><div id="tabs"></div><div id="bar"></div></div>
+<div id="msg"></div>
+<div id="menu"><h1>Городок</h1><p>Градостроительная игра о России</p><button id="cont">Продолжить</button><button id="newg">Новая игра</button><button id="howb">Как играть</button><div id="how">WASD или стрелки: двигаться. Q и E: повернуть камеру. Колесо: масштаб. R: повернуть здание. Цифры: выбор постройки в разделе. Дорогу и рельсы можно тянуть мышью. Esc: меню. Здания работают, если рядом есть дорога. Следите за шкалами нужд справа: свет, вода, тепло, еда, медицина, школы, порядок, досуг, мусор.</div></div>
+<div id="rot">Поверните устройство горизонтально</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="buildings.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
