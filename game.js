@@ -8,7 +8,7 @@ const SKY=0xaab8a0;scene.background=new THREE.Color(SKY);scene.fog=new THREE.Fog
 const cam=new THREE.PerspectiveCamera(40,1,0.5,200);
 const view={x:N/2,z:N/2,yaw:Math.PI/4,dist:28,pitch:0.9};
 function updateCam(){const d=view.dist,c=Math.cos(view.pitch);cam.position.set(view.x+Math.sin(view.yaw)*c*d,Math.sin(view.pitch)*d,view.z+Math.cos(view.yaw)*c*d);cam.lookAt(view.x,0,view.z);}
-function resize(){renderer.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();}
+function resize(){renderer.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();}
 addEventListener('resize',resize);resize();
 
 scene.add(new THREE.HemisphereLight(0xdfe8d8,0x5b6048,0.75));
@@ -198,3 +198,8 @@ $('howb').onclick=()=>$('how').classList.toggle('open');
 $('pause').onclick=toMenu;
 addEventListener('keydown',e=>{if(e.key==='Escape'&&playing)toMenu();});
 showCat('road');stats(1);requestAnimationFrame(loop);
+
+['contextmenu','copy','cut','selectstart','dragstart','gesturestart','gesturechange','dblclick'].forEach(t=>document.addEventListener(t,e=>e.preventDefault(),{passive:false}));
+document.addEventListener('touchmove',e=>{if(e.touches.length>1||(e.scale&&e.scale!==1))e.preventDefault();},{passive:false});
+addEventListener('wheel',e=>{if(e.ctrlKey)e.preventDefault();},{passive:false});
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['+','-','=','0','c','a','x','s','u'].includes(e.key.toLowerCase()))e.preventDefault();});
